@@ -58,10 +58,11 @@ function renderFavorites() {
 	}
 
 	list.innerHTML = favorites.slice(0, 5).map(item => `
-	<div class="favorite-item">
-	<img src="${item.imageUrl}" alt="${item.title}">
-	<span>${item.title}</span>
-	</div>
+	<a href="product.html?id=${item.id}" class="favorite-item">
+		<img src="${item.imageUrl}" alt="${item.title}">
+		<span>${item.title}</span>
+	</a>
 `).join("");
+
 }
 
