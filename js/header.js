@@ -38,7 +38,7 @@ fetch("./components/header.html")
 // Favorites dropdown
 document.addEventListener("click", (e) => {
 	const dropdown = document.getElementById("favoritesDropdown");
-	const heartIcon = e.target.closest(".fa-heart");
+	const heartIcon = e.target.closest(".favorites-toggle");
 
 	if (heartIcon) {
 		dropdown.classList.toggle("open");
@@ -58,9 +58,10 @@ function renderFavorites() {
 	}
 
 	list.innerHTML = favorites.slice(0, 5).map(item => `
-    <div class="favorite-item">
-      <img src="${item.image}" alt="${item.title}">
-      <span>${item.title}</span>
-    </div>
-  `).join("");
+	<div class="favorite-item">
+	<img src="${item.imageUrl}" alt="${item.title}">
+	<span>${item.title}</span>
+	</div>
+`).join("");
 }
+
