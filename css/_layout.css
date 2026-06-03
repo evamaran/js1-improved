@@ -1,0 +1,168 @@
+/* BASE STYLES */
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #0B3A40;
+}
+
+/* LAYOUT WRAPPERS */
+
+main {
+  padding: 2rem 1rem;
+  flex: 1;
+}
+
+.container {
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.product-detail-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.product-detail-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  gap: 2rem;
+}
+
+/* INFO WRAPPER */
+
+.info-wrapper {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #0B3A40;
+}
+
+.info-wrapper h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.info-wrapper p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* HOMEPAGE LAYOUT */
+
+.homepage-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.hero,
+.sales-banner {
+  width: 100%;
+}
+
+/* PRODUCT GRID LAYOUT */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* UTILITY CLASSES */
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ACCESSIBILITY */
+
+button:focus,
+a:focus,
+input:focus {
+  outline: 1px solid #0B3A40;
+  outline-offset: 2px;
+}
+
+/* LAYOUT MEDIA QUERIES */
+
+@media (min-width: 601px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .homepage-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+  }
+
+  .hero,
+  .sales-banner {
+    grid-column: span 12;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .featured,
+  .form-section,
+  .back-link-wrapper {
+    grid-column: 3 / span 8;
+  }
+
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RainyDays | Outdoor Jackets & Rainwear</title>
+	<meta name="description" content="Discover RainyDays' collection of outdoor jackets and rainwear for men and women. Stay dry and stylish with our high-performance gear."/>
+	<link rel="stylesheet" href="css/main.css">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Lato:wght@400;700&display=swap"
+		rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a87332500a.js" crossorigin="anonymous"></script>
+	<script defer src="js/header.js"></script>
+</head>
+
+<body>
+	<div id="header"></div>
+
+	<main class="checkout-container">
+
+	<h1>Checkout</h1>
+
+	<form id="checkout-form" class="checkout-grid">
+
+		<section class="checkout-section">
+		<h2>Customer Information</h2>
+
+		<label>
+			Full Name
+			<input type="text" id="fullName" required>
+		</label>
+
+		<label>
+			Email
+			<input type="email" id="email" required>
+		</label>
+
+		<label>
+			Address
+			<input type="text" id="address" required>
+		</label>
+
+		<div class="two-col">
+			<label>
+			Postal Code
+			<input type="text" id="postal" required>
+			</label>
+
+			<label>
+			City
+			<input type="text" id="city" required>
+			</label>
+		</div>
+		</section>
+
+		<section class="checkout-section">
+		<h2>Shipping</h2>
+
+		<label class="radio-option">
+			<input type="radio" name="shipping" value="standard" checked>
+			Standard Shipping (Free)
+		</label>
+
+		<label class="radio-option">
+			<input type="radio" name="shipping" value="express">
+			Express Shipping (49 NOK)
+		</label>
+		</section>
+
+		<section class="checkout-section">
+		<h2>Payment</h2>
+
+		<label>
+			Card Number
+			<input type="text" id="cardNumber" required>
+		</label>
+
+		<div class="two-col">
+			<label>
+			Expiry
+			<input type="text" id="expiry" placeholder="MM/YY" required>
+			</label>
+
+			<label>
+			CVC
+			<input type="text" id="cvc" required>
+			</label>
+		</div>
+		</section>
+
+		<section class="checkout-section order-summary">
+		<h2>Order Summary</h2>
+
+		<div id="order-items"></div>
+
+		<div class="summary-line">
+			<span>Subtotal</span>
+			<span id="subtotal">0 NOK</span>
+		</div>
+
+		<div class="summary-line">
+			<span>Shipping</span>
+			<span id="shipping-cost">Free</span>
+		</div>
+
+		<div class="summary-total">
+			<span>Total</span>
+			<span id="total">0 NOK</span>
+		</div>
+
+		<button type="submit" class="place-order-btn">Place Order</button>
+		</section>
+
+	</form>
+
+	</main>
+
+	<div id="footer"></div>
+
+	<script src="js/checkout.js"></script>
+
+</body>
+
+</html>
