@@ -1,36 +1,66 @@
 // Load header component
 fetch("./components/header.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("header").innerHTML = html;
+	.then(res => res.text())
+	.then(html => {
+		document.getElementById("header").innerHTML = html;
 
-	const cartCount = document.getElementById("cart-count");
-	const cart = JSON.parse(localStorage.getItem("cart")) || [];
-	cartCount.textContent = cart.length;
+		const cartCount = document.getElementById("cart-count");
+		const cart = JSON.parse(localStorage.getItem("cart")) || [];
+		cartCount.textContent = cart.length;
 
-    // Add elements
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const closeBtn = document.querySelector('.close-mobile-nav');
+		// Add elements
+		const hamburger = document.querySelector('.hamburger');
+		const mobileNav = document.querySelector('.mobile-nav');
+		const closeBtn = document.querySelector('.close-mobile-nav');
 
-    // Add listeners
-    hamburger.addEventListener('click', () => {
-      mobileNav.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
+		// Add listeners
+		hamburger.addEventListener('click', () => {
+			mobileNav.classList.add('open');
+			document.body.style.overflow = 'hidden';
+		});
 
-    closeBtn.addEventListener('click', () => {
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+		closeBtn.addEventListener('click', () => {
+			mobileNav.classList.remove('open');
+			document.body.style.overflow = '';
+		});
 
-    mobileNav.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') {
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-	if (window.FontAwesome) {
-		window.FontAwesome.dom.i2svg();
+		mobileNav.addEventListener('click', (e) => {
+			if (e.target.tagName === 'A') {
+				mobileNav.classList.remove('open');
+				document.body.style.overflow = '';
+			}
+		});
+		if (window.FontAwesome) {
+			window.FontAwesome.dom.i2svg();
+		}
+	});
+
+// Favorites dropdown
+document.addEventListener("click", (e) => {
+	const dropdown = document.getElementById("favoritesDropdown");
+	const heartIcon = e.target.closest(".fa-heart");
+
+	if (heartIcon) {
+		dropdown.classList.toggle("open");
+		renderFavorites();
+	} else if (!e.target.closest("#favoritesDropdown")) {
+		dropdown.classList.remove("open");
 	}
-  });
+});
+
+function renderFavorites() {
+	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+	const list = document.getElementById("favoritesList");
+
+	if (favorites.length === 0) {
+		list.innerHTML = "<p>No favorites yet.</p>";
+		return;
+	}
+
+	list.innerHTML = favorites.slice(0, 5).map(item => `
+    <div class="favorite-item">
+      <img src="${item.image}" alt="${item.title}">
+      <span>${item.title}</span>
+    </div>
+  `).join("");
+}
