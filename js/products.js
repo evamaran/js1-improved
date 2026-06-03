@@ -29,7 +29,6 @@ function renderProducts(products) {
 		card.classList.add("product-card");
 
 		const image =
-			product.image ||
 			product.image?.url ||
 			"https://via.placeholder.com/400x500?text=No+image";
 
