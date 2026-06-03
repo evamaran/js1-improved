@@ -73,7 +73,7 @@ function initFavoriteIcons() {
 				favorites.push({
 					id: product.id,
 					title: product.title,
-					imageUrl: product.image || product.image?.url,
+					imageUrl: product.image?.url || product.image || "https://via.placeholder.com/400x500?text=No+image",
 					price: product.price
 				});
 				icon.classList.add("active");
