@@ -31,8 +31,9 @@ async function fetchProduct() {
 
 // Render product
 function renderProduct(product) {
-	const image = product.image?.url || "https://via.placeholder.com/400x500?text=No+image";
-	const alt = product.image?.alt || product.title;
+	const image = product.image || product.image?.url || "https://via.placeholder.com/400x500?text=No+image";
+	const alt = product.image?.alt || product.title || "Product image";
+
 
 	container.innerHTML = `
 		<section class="product-details-card">
