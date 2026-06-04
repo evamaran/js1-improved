@@ -1,71 +1,75 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const orderHistoryContainer = document.getElementById("order-history");
-  const favoritesContainer = document.getElementById("favorite-items");
+	const orderHistoryContainer = document.getElementById("order-history");
+	const favoritesContainer = document.getElementById("favorite-items");
 
-  const API_URL = "https://v2.api.noroff.dev/rainy-days";
+	const API_URL = "https://v2.api.noroff.dev/rainy-days";
 
-  const lastOrder = JSON.parse(localStorage.getItem("lastOrder"));
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+	const lastOrder = JSON.parse(localStorage.getItem("lastOrder"));
+	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-  // ORDER HISTORY
-  if (lastOrder) {
-    const div = document.createElement("div");
-    div.innerHTML = `
-      <p><strong>Order #${lastOrder.orderNumber}</strong></p>
-      <p>Total: ${lastOrder.total} NOK</p>
-      <p>Items: ${lastOrder.items.length}</p>
-    `;
-    orderHistoryContainer.appendChild(div);
-  } else {
-    orderHistoryContainer.innerHTML = "<p>No previous orders.</p>";
-  }
+	// ORDER HISTORY
+	if (lastOrder) {
+		const div = document.createElement("div");
+		div.innerHTML = `
+	<p><strong>Order #${lastOrder.orderNumber}</strong></p>
+	<p>Total: ${lastOrder.total} NOK</p>
+	<p>Items: ${lastOrder.items.length}</p>
+	`;
+		orderHistoryContainer.appendChild(div);
+	} else {
+		orderHistoryContainer.innerHTML = "<p>No previous orders.</p>";
+	}
 
-  // FAVORITES
-  async function loadFavorites() {
-    if (favorites.length === 0) {
-      favoritesContainer.innerHTML = "<p>No saved favorites.</p>";
-      return;
-    }
+	// FAVORITES
+	async function loadFavorites() {
+		if (favorites.length === 0) {
+			favoritesContainer.innerHTML = "<p>No saved favorites.</p>";
+			return;
+		}
 
-    try {
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      const products = data.data;
+		try {
+			const response = await fetch(API_URL);
+			const data = await response.json();
+			const products = data.data;
 
-      // Filtrer produktene basert på favoritt-ID-er
-      const favoriteProducts = products.filter(product =>
-        favorites.includes(product.id)
-      );
+			const favoriteIds = favorites.map(f => f.id);
 
-      renderFavoriteProducts(favoriteProducts);
+			const favoriteProducts = products.filter(product =>
+				favoriteIds.includes(product.id)
+			);
 
-    } catch (error) {
-      favoritesContainer.innerHTML = "<p>Could not load favorite products.</p>";
-    }
-  }
+			renderFavoriteProducts(favoriteProducts);
 
-  function renderFavoriteProducts(products) {
-    favoritesContainer.innerHTML = "";
+		} catch (error) {
+			favoritesContainer.innerHTML = "<p>Could not load favorite products.</p>";
+		}
+	}
 
-    products.forEach(product => {
-      const image = product.image?.url || "https://via.placeholder.com/400x500?text=No+image";
+	function renderFavoriteProducts(products) {
+		favoritesContainer.innerHTML = "";
 
-      favoritesContainer.innerHTML += `
-        <a href="product.html?id=${product.id}" class="favorite-card">
-          <img src="${image}" alt="${product.image?.alt || product.title}">
-          <h3>${product.title}</h3>
-          <p>${product.price} NOK</p>
-        </a>
-      `;
-    });
-  }
+		products.forEach(product => {
+			const image =
+				product.image?.url ||
+				product.image ||
+				"https://via.placeholder.com/400x500?text=No+image";
 
-  loadFavorites();
+			favoritesContainer.innerHTML += `
+		<a href="product.html?id=${product.id}" class="favorite-card">
+		<img src="${image}" alt="${product.image?.alt || product.title}">
+		<h3>${product.title}</h3>
+		<p>${product.price} NOK</p>
+		</a>
+	`;
+		});
+	}
 
-  // LOGOUT
-  document.getElementById("logout-btn").addEventListener("click", () => {
-    localStorage.clear();
-    window.location.reload();
-  });
+	loadFavorites();
+
+	// LOGOUT
+	document.getElementById("logout-btn").addEventListener("click", () => {
+		localStorage.clear();
+		window.location.reload();
+	});
 });
