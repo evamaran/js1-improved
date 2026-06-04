@@ -144,12 +144,12 @@
 .favorites-dropdown {
 	position: absolute;
 	top: 48px;
-	right: 0;
+	right: 8px;
 	background-color: #F0F4F5;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	width: 260px;
+	border: 2px solid #4A6B3C;
+	border-radius: 10px;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+	width: 250px;
 	display: none;
 	z-index: 1500;
 	animation: fadeIn 0.2s ease-out;
@@ -164,7 +164,7 @@
 }
 
 .favorites-content h4 {
-	font-size: 1rem;
+	font-size: 0.95rem;
 	font-weight: 600;
 	margin-bottom: 10px;
 	color: #0B3A40;
@@ -199,7 +199,7 @@
 }
 
 .favorite-item span {
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 	color: #0B3A40;
 	font-weight: 500;
 	line-height: 1.2;
@@ -208,16 +208,17 @@
 .view-all {
 	display: block;
 	text-align: right;
-	font-size: 0.85rem;
+	font-size: 0.8rem;
 	color: #0B3A40;
 	font-weight: 600;
 	text-decoration: none;
 	margin-top: 10px;
+	padding-right: 4px;
 	transition: color 0.2s ease;
 }
 
 .view-all:hover {
-	color: #0B3A40;
+	color: #4A6B3C;
 	text-decoration: underline;
 }
 
@@ -293,7 +294,9 @@
 	}
 
 	.favorites-dropdown {
-		width: 300px;
+		right: 12px;
+		width: 280px;
+		border-color: #E89C5A;
 		padding: 4px 0;
 	}
 
@@ -303,10 +306,10 @@
 	}
 
 	.favorite-item span {
-		font-size: 0.95rem;
+		font-size: 0.9rem;
 	}
 
 	.view-all {
-		font-size: 0.9rem;
+		font-size: 0.85rem;
 	}
 }
