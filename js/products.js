@@ -30,6 +30,7 @@ function renderProducts(products) {
 
 		const image =
 			product.image?.url ||
+			product.image ||
 			"https://via.placeholder.com/400x500?text=No+image";
 
 		card.innerHTML = `
@@ -53,7 +54,6 @@ function initFavoriteIcons() {
 	icons.forEach(icon => {
 		const productId = icon.dataset.id;
 
-		// Check if product is already in favorites
 		if (favorites.some(fav => fav.id === productId)) {
 			icon.classList.add("active");
 		}
@@ -64,12 +64,10 @@ function initFavoriteIcons() {
 			const product = window.allProducts.find(p => p.id === productId);
 			if (!product) return;
 
-			// Remove if already in favorites
 			if (favorites.some(fav => fav.id === productId)) {
 				favorites = favorites.filter(fav => fav.id !== productId);
 				icon.classList.remove("active");
 			} else {
-				// Add full product object
 				favorites.push({
 					id: product.id,
 					title: product.title,

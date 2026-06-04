@@ -31,9 +31,8 @@ async function fetchProduct() {
 
 // Render product
 function renderProduct(product) {
-	const image = product.image || product.image?.url || "https://via.placeholder.com/400x500?text=No+image";
+	const image = product.image?.url || product.image || "https://via.placeholder.com/400x500?text=No+image";
 	const alt = product.image?.alt || product.title || "Product image";
-
 
 	container.innerHTML = `
 		<section class="product-details-card">
@@ -61,7 +60,6 @@ function renderProduct(product) {
 		</section>
 	`;
 
-	// Add to cart
 	document.querySelector(".btn-add").addEventListener("click", () => {
 		const selectedSize = document.querySelector("#size").value;
 		addToCart(product, selectedSize);
@@ -69,7 +67,6 @@ function renderProduct(product) {
 		showToast(product);
 	});
 
-	// Favorites
 	initFavoriteIcon(product);
 }
 
