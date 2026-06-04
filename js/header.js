@@ -8,24 +8,20 @@ fetch("./components/header.html")
 		const cart = JSON.parse(localStorage.getItem("cart")) || [];
 		cartCount.textContent = cart.length;
 
-		// Mobile navigation elements
 		const hamburger = document.querySelector(".hamburger");
 		const mobileNav = document.querySelector(".mobile-nav");
 		const closeBtn = document.querySelector(".close-mobile-nav");
 
-		// Open mobile nav
 		hamburger.addEventListener("click", () => {
 			mobileNav.classList.add("open");
 			document.body.style.overflow = "hidden";
 		});
 
-		// Close mobile nav
 		closeBtn.addEventListener("click", () => {
 			mobileNav.classList.remove("open");
 			document.body.style.overflow = "";
 		});
 
-		// Close mobile nav when clicking a link
 		mobileNav.addEventListener("click", (e) => {
 			if (e.target.tagName === "A") {
 				mobileNav.classList.remove("open");
@@ -36,26 +32,24 @@ fetch("./components/header.html")
 		if (window.FontAwesome) {
 			window.FontAwesome.dom.i2svg();
 		}
+
+		// Favorites dropdown (delegated listener)
+		document.addEventListener("click", (e) => {
+			const dropdown = document.getElementById("favoritesDropdown");
+			const heartIcon = e.target.closest(".favorites-toggle");
+
+			if (heartIcon) {
+				e.preventDefault();
+				dropdown.classList.toggle("open");
+				renderFavorites();
+				return;
+			}
+
+			if (!e.target.closest("#favoritesDropdown")) {
+				dropdown.classList.remove("open");
+			}
+		});
 	});
-
-// Favorites dropdown (delegated listener)
-document.addEventListener("click", (e) => {
-	const dropdown = document.getElementById("favoritesDropdown");
-	const heartIcon = e.target.closest(".favorites-toggle");
-
-	// Toggle dropdown when clicking the heart icon
-	if (heartIcon) {
-		e.preventDefault(); // prevent navigation to favorites.html
-		dropdown.classList.toggle("open");
-		renderFavorites();
-		return;
-	}
-
-	// Close dropdown when clicking outside
-	if (!e.target.closest("#favoritesDropdown")) {
-		dropdown.classList.remove("open");
-	}
-});
 
 // Render favorites list
 function renderFavorites() {

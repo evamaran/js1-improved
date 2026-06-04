@@ -1,22 +1,21 @@
 async function loadComponent(id, file) {
-  const container = document.getElementById(id);
-  try {
-    const response = await fetch(file);
-    const html = await response.text();
-    container.innerHTML = html;
+	const container = document.getElementById(id);
+	try {
+		const response = await fetch(file);
+		const html = await response.text();
+		container.innerHTML = html;
 
-    if (id === "header") {
-        // Header in DOM for cart count to work
-        import("./cart.js").then(module => {
-            module.updateCartCount();
-        });
+		if (id === "header") {
+			import("./cart.js").then(module => {
+				module.updateCartCount();
+			});
 
-        document.dispatchEvent(new Event("header-loaded"));
-    }
+			document.dispatchEvent(new Event("header-loaded"));
+		}
 
-  } catch (error) {
-  }
+	} catch (error) {
+	}
 }
 
-loadComponent("header", "/js1/components/header.html");
-loadComponent("footer", "/js1/components/footer.html");
+loadComponent("header", "components/header.html");
+loadComponent("footer", "components/footer.html");
