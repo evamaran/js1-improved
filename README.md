@@ -32,11 +32,3 @@ For Portfolio 1 (2026), I chose to finish it properly so the project feels compl
 
 🔗 **Commit showing the improvement:**  
 https://github.com/evamaran/js1-improved/commit/38f5af28cd4ebaef98097701b2afeb6ea804d329
-
----
-
-## 🔗 Live Demo
-https://myplacement.needstobeadded
-
-## 📁 GitHub Repository
-https://github.com/evamaran/js1-improved
