@@ -1,56 +1,42 @@
-# Rainy Days – JavaScript 1 Project
+# JavaScript 1 – Course Assignment
 
-A responsive e‑commerce storefront built as part of the JavaScript 1 course.  
-The site displays products fetched from the Noroff API, supports size selection, and includes a fully functional shopping cart with persistent storage.
+This project was originally built during the JavaScript 1 module in 2025.  
+It focuses on fundamental JavaScript concepts such as variables, functions, loops, conditionals, and DOM manipulation.
 
----
+## 📌 Project Overview
+The project demonstrates:
+- Basic DOM interaction  
+- Event handling  
+- Rendering dynamic content  
+- Simple UI built with HTML and CSS  
+- Vanilla JavaScript for functionality  
 
-## Live version
-
-The website is published via GitHub:
-[https://evamaran.github.io/js1/](https://evamaran.github.io/js1/)
-
----
-
-## Features
-
-- Dynamic product listing pages
-- Product detail view with size selection
-- Add‑to‑cart functionality with toast notifications
-- Shopping cart stored in `localStorage`
-- Cart page with quantity management and order summary
-- Reusable header and footer loaded through JavaScript components
-- Responsive layout for mobile, tablet, and desktop
-- Clean, modular JavaScript structure (ES modules)
+The project was updated in 2026 as part of the Portfolio 1 assignment.
 
 ---
 
-## Technologies Used
+## 🛠️ Improvement Made for Portfolio 1 (2026)
+For the Portfolio 1 submission, I completed and refined the **favorites functionality**.
 
-- HTML5  
-- CSS3  
-- Vanilla JavaScript  
-- Noroff API (Online Shop endpoint)  
-- GitHub Pages (Deployment)
+### ✔ What was improved
+- Finalized the logic for adding and removing favorites  
+- Ensured favorites persist using `localStorage`  
+- Cleaned up event listeners and improved naming  
+- Fixed inconsistencies so the feature works the same across pages  
+- Implemented a **dropdown UI** in the header that displays saved favorites  
+- Improved the rendering logic so the dropdown updates correctly  
 
----
+### 🎯 Why this improvement
+The favorites system was partially implemented in the original 2025 version, but the feature was never fully completed.  
+For Portfolio 1 (2026), I chose to finish it properly so the project feels complete and the functionality is consistent and user‑friendly.
 
-## API
-
-All product data is fetched from the Noroff API:
-
-`https://v2.api.noroff.dev/online-shop`
-
----
-
-## Known Limitations
-
-- Checkout flow is front‑end only  
-- Profile page is static  
-- Some informational pages contain placeholder content  
+🔗 **Commit showing the improvement:**  
+https://github.com/evamaran/js1-improved/commit/38f5af28cd4ebaef98097701b2afeb6ea804d329
 
 ---
 
-## License
+## 🔗 Live Demo
+https://myplacement.needstobeadded
 
-This project was created for educational purposes as part of the Noroff Front‑End Development program.
+## 📁 GitHub Repository
+https://github.com/evamaran/js1-improved
