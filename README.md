@@ -3,7 +3,7 @@
 This project was originally built during the JavaScript 1 module in 2025.  
 It focuses on fundamental JavaScript concepts such as variables, functions, loops, conditionals, and DOM manipulation.
 
-## 📌 Project Overview
+## Project Overview
 The project demonstrates:
 - Basic DOM interaction  
 - Event handling  
@@ -13,12 +13,10 @@ The project demonstrates:
 
 The project was updated in 2026 as part of the Portfolio 1 assignment.
 
----
-
-## 🛠️ Improvement Made for Portfolio 1 (2026)
+## Improvement Made for Portfolio 1 (2026)
 For the Portfolio 1 submission, I completed and refined the **favorites functionality**.
 
-### ✔ What was improved
+### What was improved
 - Finalized the logic for adding and removing favorites  
 - Ensured favorites persist using `localStorage`  
 - Cleaned up event listeners and improved naming  
@@ -26,17 +24,8 @@ For the Portfolio 1 submission, I completed and refined the **favorites function
 - Implemented a **dropdown UI** in the header that displays saved favorites  
 - Improved the rendering logic so the dropdown updates correctly  
 
-### 🎯 Why this improvement
+### Why this improvement
 The favorites system was partially implemented in the original 2025 version, but the feature was never fully completed.  
 For Portfolio 1 (2026), I chose to finish it properly so the project feels complete and the functionality is consistent and user‑friendly.
 
-🔗 **Commit showing the improvement:**  
-https://github.com/evamaran/js1-improved/commit/38f5af28cd4ebaef98097701b2afeb6ea804d329
-
----
-
-## 🔗 Live Demo
-https://myplacement.needstobeadded
-
-## 📁 GitHub Repository
-https://github.com/evamaran/js1-improved
+Commit: https://github.com/evamaran/js1-improved/commit/38f5af28cd4ebaef98097701b2afeb6ea804d329
